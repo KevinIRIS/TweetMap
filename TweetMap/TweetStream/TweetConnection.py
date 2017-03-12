@@ -11,7 +11,7 @@ class TweetConnection (StreamListener):
     __raw_data = []
     def __init__(self):
         self.index = 0
-        __domain = ""
+        __domain = "search-ccnyutweetmap-a27vedwjsz5rus4g65yoovk2sy.us-east-1.es.amazonaws.com"
         self.__es = Elasticsearch(hosts= [{'host': __domain, 'port': 80,'use_ssl': False}])
         __body = {"mappings": { "tweet":{ "properties": {"username": {"type": "string"}, "timestamp": {"type": "date"}, "location": {"type": "geo_point"}, "text": {"type": "string"} } } } }
         if self.__es.indices.exists(index="tweet") is True:
