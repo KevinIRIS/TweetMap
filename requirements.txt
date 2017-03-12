@@ -1,0 +1,11 @@
+Django==1.10.6
+elasticsearch==5.2.0
+oauthlib==2.0.1
+pip==9.0.1
+requests==2.13.0
+requests-oauthlib==0.8.0
+setuptools==32.2.0
+six==1.10.0
+tweepy==3.5.0
+urllib3==1.20
+wheel==0.29.0

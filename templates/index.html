@@ -22,15 +22,11 @@ html, body {
 <div id="selectOption" class = "threeDLook" align="left" id="hover" style="position: absolute; left:10px; top:60px; z-index:20; width: 100px;background:white;">
 	<select name="options" onchange="report(this.value)">
 		<option value="">Please select</option>
-		<option value="Love">Love</option>
-		<option value="Food">Food</option>
-		<option value="Tech">Tech</option>
-		<option value="Sport">Sport</option>
-		<option value="Travel">Travel</option>
-		<option value="Dog">Dog</option>
-		<option value="LOL">LOL</option>
-		<option value="Awesome">Awesome</option>
-		<option value="Hillary">Hillary</option>
+		<option value="Texas">Texas</option>
+		<option value="Jayz">Jayz</option>
+		<option value="Eminem">Eminem</option>
+		<option value="is">is</option>
+		<option value="NYC">NYC</option>
 		<option value="Donald">Donald</option>
 	</select>
 </div>
@@ -67,13 +63,14 @@ function parseJSON(data, status, xhr){
 	{
 		if (data.hits[i] && data.hits[i]._source && data.hits[i]._source.location)
 		{
-
-			var latLng = new google.maps.LatLng(20,30);
+            var longitude = data.hits[i]._source.location['lon'];
+			var latitude = data.hits[i]._source.location['lat'];
+			var latLng = new google.maps.LatLng(latitude, longitude);
 			var marker = new google.maps.Marker({
 				position: latLng,
 				map: map,
 				id: i,
-                text: "xxxx"
+                text: "<b>" + data.hits[i]._source.username + "</b>: &quot;" + data.hits[i]._source.text + "&quot;  - <i>" + (new Date(data.hits[i]._source.timestamp* 1000)).toGMTString() + "</i>"
 			});
 			marker.addListener('click', function() {
 				map.setZoom(8);
@@ -121,7 +118,7 @@ function loadMapWithLatLong(latitude, longitude)
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 2,
-		center: new google.maps.LatLng(0,0),
+		center: new google.maps.LatLng(40.694439, -73.986536),
 		mapTypeId: 'terrain'
 	});
 	url = 'json//';

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import re
 from elasticsearch import Elasticsearch
 
-domain = ""
+domain = "search-ccnyutweetmap-a27vedwjsz5rus4g65yoovk2sy.us-east-1.es.amazonaws.com"
 index = "tweet"
 def get_query(request, keyword):
     es = Elasticsearch([{'host': domain, 'port': 80,'use_ssl': False}])
