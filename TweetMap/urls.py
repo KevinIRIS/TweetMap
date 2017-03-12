@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from TweetMap.TweetStream import replyquery
+from TweetMap.TweetStream import keywordsearch
+from TweetMap.TweetStream import geosearch
 from TweetMap.TweetStream import indexpage
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^json/(?P<keyword>\w{0,50})/$', replyquery.get_query),
+    url(r'^json/(?P<keyword>\w{0,50})/$', keywordsearch.get_query),
+    url(r'^geo/(?P<lat>-?\d*\.{0,1}\d+)/(?P<long>-?\d*\.{0,1}\d+)/$', geosearch.get_geo),
     url(r'', indexpage.display)
+
 ]
