@@ -7,7 +7,7 @@
 # How to use:
   fill in your owen Twitter key and Google Map key
   
-  start serverend.py.
+  start serverend.py, which can make sure you can get posts in real time.
   
   Open this webPage:  http://custom-env-1.pmspppavfq.us-east-1.elasticbeanstalk.com/ 
   
