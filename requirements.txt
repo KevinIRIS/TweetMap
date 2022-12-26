@@ -8,4 +8,4 @@ setuptools==32.2.0
 six==1.10.0
 tweepy==3.5.0
 urllib3==1.20
-wheel==0.29.0
+wheel==0.38.1
